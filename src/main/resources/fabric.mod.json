@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "bloodmoon",
+	"version": "${version}",
+	"name": "Rise of the Blood Moon",
+	"description": "The Blood Moon mod to end all Blood Moon mods!",
+	"authors": [
+		"Roselia"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/bloodmoon/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.roselia.bloodmoon.Bloodmoon"
+		],
+		"client": [
+			"net.roselia.bloodmoon.BloodmoonClient"
+		],
+		"fabric-datagen": [
+			"net.roselia.bloodmoon.BloodmoonDataGenerator"
+		]
+	},
+	"mixins": [
+		"bloodmoon.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
