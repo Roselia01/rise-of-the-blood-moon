@@ -2,6 +2,9 @@ package net.roselia.bloodmoon;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.roselia.bloodmoon.block.ModBlocks;
+import net.roselia.bloodmoon.item.ModItemGroups;
+import net.roselia.bloodmoon.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +14,8 @@ public class Bloodmoon implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModItemGroups.registerItemGroups();
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }
