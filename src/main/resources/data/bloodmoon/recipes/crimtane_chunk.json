@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "bloodmoon:crimtane_clump"
+    }
+  ],
+  "result": {
+    "item": "bloodmoon:crimtane_chunk",
+    "count": 9
+  }
+}

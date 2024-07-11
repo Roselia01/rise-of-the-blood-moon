@@ -16,6 +16,8 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bloodmoon"))
                     .icon(() -> new ItemStack(ModItems.SANGUINE_PRISM)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SANGUINE_PRISM);
+                        entries.add(ModItems.SANGUINE_SUMMONER);
+                        entries.add(ModItems.BLOODY_LENS);
                         entries.add(ModItems.CRIMTANE_CHUNK);
                         entries.add(ModItems.CRIMTANE_INGOT);
                         entries.add(ModItems.FLESH_CHUNK);
@@ -23,7 +25,6 @@ public class ModItemGroups {
                         entries.add(ModItems.INTESTINES);
                         entries.add(ModItems.COOKED_INTESTINES);
                         entries.add(ModItems.BLOODY_NEEDLE);
-                        entries.add(ModItems.BLOODY_LENS);
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
                         entries.add(ModBlocks.CRIMTANE_BLOCK);

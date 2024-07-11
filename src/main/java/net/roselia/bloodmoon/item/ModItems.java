@@ -20,6 +20,7 @@ public class ModItems {
     public static final Item INTESTINES = registerItem("intestines", new Item(new FabricItemSettings()));
     public static final Item COOKED_INTESTINES = registerItem("cooked_intestines", new Item(new FabricItemSettings()));
     public static final Item BLOODY_NEEDLE = registerItem("bloody_needle", new Item(new FabricItemSettings()));
+    public static final Item SANGUINE_SUMMONER = registerItem("sanguine_summoner", new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Bloodmoon.MOD_ID, name), item);

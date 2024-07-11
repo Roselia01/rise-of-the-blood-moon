@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CLC",
+    "LSL",
+    "CLC"
+  ],
+  "key": {
+    "L": {
+      "item": "bloodmoon:bloody_lens"
+    },
+    "C": {
+      "item": "bloodmoon:crimtane_chunk"
+    },
+    "S": {
+      "item": "bloodmoon:sanguine_summoner"
+    }
+  },
+  "result": {
+    "item": "bloodmoon:sanguine_prism"
+  }
+}

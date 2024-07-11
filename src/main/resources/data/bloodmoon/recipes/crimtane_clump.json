@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloodmoon:crimtane_chunk"
+    }
+  },
+  "result": {
+    "item": "bloodmoon:crimtane_clump"
+  }
+}

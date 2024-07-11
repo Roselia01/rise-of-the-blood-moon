@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "bloodmoon:crimtane_block"
+    }
+  ],
+  "result": {
+    "item": "bloodmoon:crimtane_ingot",
+    "count": 9
+  }
+}

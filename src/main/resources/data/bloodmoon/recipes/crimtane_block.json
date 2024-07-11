@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloodmoon:crimtane_ingot"
+    }
+  },
+  "result": {
+    "item": "bloodmoon:crimtane_block"
+  }
+}
