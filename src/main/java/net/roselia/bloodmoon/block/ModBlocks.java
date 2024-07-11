@@ -14,7 +14,9 @@ import net.roselia.bloodmoon.Bloodmoon;
 public class ModBlocks {
 
     public static final Block CRIMTANE_CLUMP = registerBlock("crimtane_clump",
-            new Block(FabricBlockSettings.copyOf(Blocks.RAW_COPPER_BLOCK)));
+            new Block(FabricBlockSettings.copyOf(Blocks.NETHERRACK)));
+    public static final Block CRIMTANE_BLOCK = registerBlock("crimtane_block",
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

@@ -26,6 +26,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BLOODY_LENS);
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
+                        entries.add(ModBlocks.CRIMTANE_BLOCK);
 
             }).build());
 
