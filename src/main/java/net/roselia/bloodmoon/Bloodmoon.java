@@ -3,6 +3,7 @@ package net.roselia.bloodmoon;
 import net.fabricmc.api.ModInitializer;
 
 import net.roselia.bloodmoon.block.ModBlocks;
+import net.roselia.bloodmoon.entity.ModEntities;
 import net.roselia.bloodmoon.item.ModItemGroups;
 import net.roselia.bloodmoon.item.ModItems;
 import org.slf4j.Logger;
@@ -17,5 +18,6 @@ public class Bloodmoon implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModEntities.registerModEntities();
 	}
 }

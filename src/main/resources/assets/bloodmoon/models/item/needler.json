@@ -1,0 +1,28 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "bloodmoon:item/needler"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1
+      },
+      "model": "bloodmoon:item/needler_pulling_0"
+    },
+    {
+      "predicate": {
+        "pull": 0.65,
+        "pulling": 1
+      },
+      "model": "bloodmoon:item/needler_pulling_1"
+    },
+    {
+      "predicate": {
+        "pull": 0.9,
+        "pulling": 1
+      },
+      "model": "bloodmoon:item/needler_pulling_2"
+    }
+  ]
+}

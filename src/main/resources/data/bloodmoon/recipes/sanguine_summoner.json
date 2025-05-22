@@ -3,7 +3,7 @@
   "category": "misc",
   "pattern": [
     "CLC",
-    "LSL",
+    "LTL",
     "CLC"
   ],
   "key": {
@@ -11,13 +11,13 @@
       "item": "bloodmoon:bloody_lens"
     },
     "C": {
-      "item": "bloodmoon:crimtane_ingot"
+      "item": "bloodmoon:crimtane_chunk"
     },
-    "S": {
-      "item": "bloodmoon:sanguine_summoner"
+    "T": {
+      "item": "minecraft:totem_of_undying"
     }
   },
   "result": {
-    "item": "bloodmoon:sanguine_prism"
+    "item": "bloodmoon:sanguine_summoner"
   }
 }

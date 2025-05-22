@@ -24,7 +24,8 @@ public class ModItemGroups {
                         entries.add(ModItems.COOKED_FLESH_CHUNK);
                         entries.add(ModItems.INTESTINES);
                         entries.add(ModItems.COOKED_INTESTINES);
-                        entries.add(ModItems.BLOODY_NEEDLE);
+                        entries.add(ModItems.NEEDLER);
+                        entries.add(ModItems.BLOOD_NEEDLE);
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
                         entries.add(ModBlocks.CRIMTANE_BLOCK);

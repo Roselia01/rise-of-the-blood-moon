@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "combat",
+  "pattern": [
+    " BI",
+    "CLI",
+    " BI"
+  ],
+  "key": {
+    "B": {
+      "item": "bloodmoon:blood_needle"
+    },
+    "C": {
+      "item": "bloodmoon:crimtane_ingot"
+    },
+    "I": {
+      "item": "bloodmoon:intestines"
+    },
+    "L": {
+      "item": "bloodmoon:bloody_lens"
+    }
+  },
+  "result": {
+    "item": "bloodmoon:needler"
+  }
+}

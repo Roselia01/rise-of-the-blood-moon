@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow_pulling_0",
+  "textures": {
+    "layer0": "bloodmoon:item/needler_pulling_0"
+  }
+}

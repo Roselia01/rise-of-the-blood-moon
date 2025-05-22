@@ -1,14 +1,14 @@
 {
 	"schemaVersion": 1,
 	"id": "bloodmoon",
-	"version": "${version}",
+	"version": "1.0.0",
 	"name": "Rise of the Blood Moon",
 	"description": "The Blood Moon mod to end all Blood Moon mods!",
 	"authors": [
 		"Roselia"
 	],
 	"contact": {
-		"twitter": "https://x.com/roseliax64",
+		"bluesky": "https://bsky.app/profile/roselia.dev",
 		"sources": "https://github.com/Roselia01/rise-of-the-blood-moon"
 	},
 	"license": "MIT",
@@ -33,8 +33,5 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
