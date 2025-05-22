@@ -26,7 +26,10 @@ import net.minecraft.entity.projectile.ArrowEntity;
 
 public class BloodNeedleEntity extends ArrowEntity {
 
-    private boolean isHoming = false;
+    private @Nullable LivingEntity lockedTarget = null;
+    private final double lockOnFOV = 0.9;
+    private double lastDistance = Double.MAX_VALUE;
+    private boolean hasMissed = false;
 
     public BloodNeedleEntity(EntityType<? extends BloodNeedleEntity> type, World world) {
         super(type, world);
@@ -37,7 +40,6 @@ public class BloodNeedleEntity extends ArrowEntity {
         this.setOwner(owner);
         this.setDamage(1.0);
         this.pickupType = PickupPermission.DISALLOWED;
-        this.setNoGravity(false);
     }
 
     public BloodNeedleEntity(World world, double x, double y, double z) {
@@ -54,80 +56,102 @@ public class BloodNeedleEntity extends ArrowEntity {
 
     @Override
     public void tick() {
-    super.tick();
+        super.tick();
+        if (this.getWorld().isClient || this.inGround) return;
 
-    if (this.getWorld().isClient) return;
-    if (this.inGround) return;
-
-    LivingEntity target = findNearestTarget();
-    if (target != null) {
-        if (!isHoming) {
-            isHoming = true;
-            this.setNoGravity(true);
+        if (lockedTarget == null) {
+            lockedTarget = findLockOnTarget();
+            return;
         }
 
-        Vec3d toTarget = target.getPos().add(0, target.getStandingEyeHeight() / 2, 0)
-            .subtract(this.getPos()).normalize();
+        if (!lockedTarget.isAlive()) {
+            lockedTarget = null;
+            return;
+        }
 
-        Vec3d currentVelocity = this.getVelocity();
-        Vec3d newVelocity = currentVelocity.add(toTarget.multiply(0.2)).normalize().multiply(currentVelocity.length());
+        Vec3d targetPos = lockedTarget.getPos().add(0, lockedTarget.getStandingEyeHeight() * 0.6, 0);
+        double currentDistance = this.getPos().squaredDistanceTo(targetPos);
+
+        // Check if we've passed the target
+        if (!hasMissed && currentDistance > lastDistance + 1.0) {
+            hasMissed = true;
+        }
+
+        lastDistance = currentDistance;
+
+        Vec3d toTarget = targetPos.subtract(this.getPos());
+
+        // Obstacle avoidance still active
+        Vec3d avoidVec = getAvoidanceVector();
+        toTarget = toTarget.add(avoidVec);
+
+        // Homing curve behavior (stronger if it missed)
+        double steerStrength = hasMissed ? 0.5 : 0.3;
+
+        Vec3d velocity = this.getVelocity();
+        Vec3d newVelocity = velocity
+            .add(toTarget.normalize().multiply(steerStrength))
+            .normalize()
+            .multiply(velocity.length());
 
         this.setVelocity(newVelocity);
         this.velocityDirty = true;
-    }}
+    }
 
     @Nullable
-    private LivingEntity findNearestTarget() {
-        double radius = 16.0;
+    private LivingEntity findLockOnTarget() {
         Vec3d forward = this.getVelocity().normalize();
+        double radius = 16.0;
 
-
-
-        List<LivingEntity> candidates = this.getWorld().getEntitiesByClass(
+        return this.getWorld().getEntitiesByClass(
             LivingEntity.class,
             this.getBoundingBox().expand(radius),
             entity -> {
                 if (entity == this.getOwner()) return false;
                 if (!entity.isAlive() || entity.isSpectator()) return false;
-                if (entity instanceof TameableEntity tame && tame.isTamed()) return false;
-                if (entity instanceof ArmorStandEntity || entity.hasVehicle()) return false;
 
                 Vec3d toTarget = entity.getPos().subtract(this.getPos()).normalize();
-                if (forward.dotProduct(toTarget) < 0.5) return false;
+                if (forward.dotProduct(toTarget) < lockOnFOV) return false;
 
-                Vec3d eyePos = entity.getPos().add(0, entity.getStandingEyeHeight() / 2.0, 0);
+                Vec3d eyePos = entity.getPos().add(0, entity.getStandingEyeHeight() * 0.6, 0);
                 BlockHitResult hit = this.getWorld().raycast(new RaycastContext(
-                    this.getPos(),
-                    eyePos,
+                    this.getPos(), eyePos,
                     RaycastContext.ShapeType.COLLIDER,
                     RaycastContext.FluidHandling.NONE,
                     this
                 ));
                 return hit.getType() == HitResult.Type.MISS || hit.getPos().isInRange(eyePos, 1.0);
             }
+        ).stream().min(Comparator.comparingInt(this::getTargetPriority)).orElse(null);
+    }
+
+    private Vec3d getAvoidanceVector() {
+        List<Entity> obstacles = this.getWorld().getOtherEntities(
+            this,
+            this.getBoundingBox().expand(1.5), // close obstacles
+            entity -> entity != lockedTarget && entity instanceof LivingEntity && entity.isAlive()
         );
 
-        if (candidates.isEmpty()) return null;
+        Vec3d avoidance = Vec3d.ZERO;
+        for (Entity e : obstacles) {
+            Vec3d away = this.getPos().subtract(e.getPos()).normalize();
+            avoidance = avoidance.add(away);
+        }
 
-        return candidates.stream()
-            .min(Comparator.comparingDouble(entity -> {
-                int priority = getTargetPriority(entity);
-                double distance = this.squaredDistanceTo(entity);
-                return (priority * 1000.0) + distance;
-            }))
-            .orElse(null);
+        return avoidance.normalize().multiply(0.5);
     }
-
 
     private int getTargetPriority(Entity entity) {
-    if (entity instanceof TameableEntity tame && tame.isTamed()) return 0;
-    if (entity instanceof ArmorStandEntity || entity.hasVehicle()) return 0;
+    if (entity instanceof TameableEntity tame && tame.isTamed()) return 4;
+    if (entity instanceof ArmorStandEntity || entity.hasVehicle()) return 4;
 
-    if (entity instanceof PassiveEntity) return 2;
-    if (entity instanceof HostileEntity) return 4;
-    if (entity instanceof PlayerEntity) return 3;
+    if (entity.getType().toString().equals("minecraft:zombified_piglin")) return 3;
+    if (entity.getType().toString().equals("minecraft:iron_golem")) return 3;
 
-    return 1;
+    if (entity instanceof PassiveEntity) return 3;
+    if (entity instanceof PlayerEntity) return 2;
+    if (entity instanceof HostileEntity) return 1;
+
+    return 5;
     }
-
 }
