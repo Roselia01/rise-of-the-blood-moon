@@ -15,11 +15,13 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.roselia.bloodmoon.entity.ModEntities;
+import net.roselia.bloodmoon.entity.NeedleTracker;
 import net.roselia.bloodmoon.item.ModItems;
 
 import net.minecraft.entity.projectile.ArrowEntity;
@@ -38,14 +40,14 @@ public class BloodNeedleEntity extends ArrowEntity {
     public BloodNeedleEntity(World world, LivingEntity owner) {
         super(ModEntities.BLOOD_NEEDLE, world);
         this.setOwner(owner);
-        this.setDamage(1.0);
+        this.setDamage(2.0);
         this.pickupType = PickupPermission.DISALLOWED;
     }
 
     public BloodNeedleEntity(World world, double x, double y, double z) {
         super(ModEntities.BLOOD_NEEDLE, world);
         this.setPos(x, y, z);
-        this.setDamage(1.0);
+        this.setDamage(2.0);
         this.pickupType = PickupPermission.DISALLOWED;
     }
 
@@ -154,4 +156,15 @@ public class BloodNeedleEntity extends ArrowEntity {
 
     return 5;
     }
+
+    @Override
+    protected void onEntityHit(EntityHitResult hitResult) {
+        super.onEntityHit(hitResult);
+        Entity hit = hitResult.getEntity();
+
+        if (!this.getWorld().isClient && hit instanceof LivingEntity living) {
+            NeedleTracker.registerHit(living);
+        }
+}
+
 }
