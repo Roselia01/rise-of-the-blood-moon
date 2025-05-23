@@ -1,6 +1,7 @@
 package net.roselia.bloodmoon.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -9,6 +10,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.roselia.bloodmoon.Bloodmoon;
 import net.roselia.bloodmoon.block.ModBlocks;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.item.Items;
 
 public class ModItemGroups {
     public static final ItemGroup BLOODMOON_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -29,10 +32,13 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
                         entries.add(ModBlocks.CRIMTANE_BLOCK);
-
             }).build());
-
+            
     public static void registerItemGroups() {
         Bloodmoon.LOGGER.info("Registering Item Groups for " + Bloodmoon.MOD_ID);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.BOW, ModItems.NETHERITE_BOW);
+        });
     }
 }

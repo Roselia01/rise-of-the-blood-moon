@@ -37,5 +37,19 @@ public class BloodmoonClient implements ClientModInitializer {
                 float useTime = (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
                 return useTime;
             });
+
+        ModelPredicateProviderRegistry.register(ModItems.NETHERITE_BOW,
+            new Identifier("pulling"), (stack, world, entity, seed) -> {
+                return (entity != null && entity.isUsingItem() && entity.getActiveItem() == stack) ? 1.0F : 0.0F;
+            });
+
+        ModelPredicateProviderRegistry.register(ModItems.NETHERITE_BOW,
+            new Identifier("pull"), (stack, world, entity, seed) -> {
+                if (entity == null) {
+                    return 0.0F;
+                }
+                float useTime = (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
+                return useTime;
+            });
     }
 }

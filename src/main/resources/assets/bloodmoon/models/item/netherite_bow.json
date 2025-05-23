@@ -1,28 +1,28 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "bloodmoon:item/needler"
+    "layer0": "bloodmoon:item/netherite_bow"
   },
   "overrides": [
     {
       "predicate": {
         "pulling": 1
       },
-      "model": "bloodmoon:item/needler_pulling_0"
-    },
-    {
-      "predicate": {
-        "pull": 0.2,
-        "pulling": 1
-      },
-      "model": "bloodmoon:item/needler_pulling_1"
+      "model": "bloodmoon:item/netherite_bow_pulling_0"
     },
     {
       "predicate": {
         "pull": 0.45,
         "pulling": 1
       },
-      "model": "bloodmoon:item/needler_pulling_2"
+      "model": "bloodmoon:item/netherite_bow_pulling_1"
+    },
+    {
+      "predicate": {
+        "pull": 0.8,
+        "pulling": 1
+      },
+      "model": "bloodmoon:item/netherite_bow_pulling_2"
     }
   ]
 }

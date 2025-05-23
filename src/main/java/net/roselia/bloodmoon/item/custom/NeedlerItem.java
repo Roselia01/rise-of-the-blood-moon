@@ -15,12 +15,19 @@ import net.minecraft.world.World;
 import net.roselia.bloodmoon.entity.custom.BloodNeedleEntity;
 import net.roselia.bloodmoon.item.ModItems;
 import java.util.function.Predicate;
+import net.roselia.bloodmoon.api.BowItemType;
+
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 
-public class NeedlerItem extends BowItem {
+public class NeedlerItem extends BowItem implements BowItemType {
     public NeedlerItem(Settings settings) {
         super(settings);
     }
+
+    @Override
+	public float getDrawSpeed() {
+		return 10.0f;
+	}
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
@@ -127,6 +134,16 @@ public class NeedlerItem extends BowItem {
         return stack -> stack.getItem() == ModItems.BLOOD_NEEDLE;
     }
 
+    public static float getPullProgress(int useTicks) {
+		float f = (float)useTicks / 10.0f;
+		f = (f * f + f * 2.0F) / 3.0F;
+		if (f > 1.0F) {
+			f = 1.0F;
+		}
+
+		return f;
+	}
+
     @Override
     public int getMaxUseTime(ItemStack stack) {
         return 72000;
@@ -135,10 +152,5 @@ public class NeedlerItem extends BowItem {
     @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.BOW;
-    }
-
-    @Override
-    public int getRange() {
-        return 15;
     }
 }

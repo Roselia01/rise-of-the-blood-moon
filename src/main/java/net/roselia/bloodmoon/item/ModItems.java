@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.roselia.bloodmoon.Bloodmoon;
 import net.roselia.bloodmoon.item.custom.NeedlerItem;
+import net.roselia.bloodmoon.item.custom.NetheriteBowItem;
 
 public class ModItems {
     public static final Item FLESH_CHUNK = registerItem("flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
@@ -53,6 +54,9 @@ public class ModItems {
             .maxCount(1)));
     public static final Item NEEDLER = registerItem("needler", new NeedlerItem(new FabricItemSettings().maxCount(1)
             .maxDamage(90)));
+
+    public static final Item NETHERITE_BOW = registerItem("netherite_bow", new NetheriteBowItem(new FabricItemSettings().maxCount(1)
+            .maxDamage(768)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Bloodmoon.MOD_ID, name), item);
