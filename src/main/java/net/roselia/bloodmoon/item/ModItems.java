@@ -1,12 +1,17 @@
 package net.roselia.bloodmoon.item;
 
+import java.util.List;
+
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.roselia.bloodmoon.Bloodmoon;
@@ -14,6 +19,7 @@ import net.roselia.bloodmoon.item.custom.NeedlerItem;
 import net.roselia.bloodmoon.item.custom.NetheriteBowItem;
 
 public class ModItems {
+
     public static final Item FLESH_CHUNK = registerItem("flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
             .hunger(4)
             .saturationModifier(0.1f)
@@ -21,17 +27,23 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200, 1), 1.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 0), 0.5f)
             .build())));
+
     public static final Item COOKED_FLESH_CHUNK = registerItem("cooked_flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
             .hunger(6)
             .saturationModifier(0.3f)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 0), 0.5f)
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 900, 0), 0.25f)
             .build())));
+
     public static final Item SANGUINE_PRISM = registerItem("sanguine_prism", new Item(new FabricItemSettings().rarity(Rarity.EPIC)
             .maxCount(1)));
+
     public static final Item BLOODY_LENS = registerItem("bloody_lens", new Item(new FabricItemSettings()));
+
     public static final Item CRIMTANE_INGOT = registerItem("crimtane_ingot", new Item(new FabricItemSettings()));
+
     public static final Item CRIMTANE_CHUNK = registerItem("crimtane_chunk", new Item(new FabricItemSettings()));
+
     public static final Item INTESTINES = registerItem("intestines", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
             .hunger(1)
             .saturationModifier(0f)
@@ -41,6 +53,7 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 2400, 1), 1.0f)
             .snack()
             .build())));
+
     public static final Item COOKED_INTESTINES = registerItem("cooked_intestines", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
             .hunger(2)
             .saturationModifier(0.1f)
@@ -49,14 +62,35 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 1200, 0), 0.5f)
             .snack()
             .build())));
+
     public static final Item BLOOD_NEEDLE = registerItem("blood_needle", new Item(new FabricItemSettings()));
+
     public static final Item SANGUINE_SUMMONER = registerItem("sanguine_summoner", new Item(new FabricItemSettings().rarity(Rarity.EPIC)
             .maxCount(1)));
+            
     public static final Item NEEDLER = registerItem("needler", new NeedlerItem(new FabricItemSettings().maxCount(1)
-            .maxDamage(90)));
+            .maxDamage(192)));
 
     public static final Item NETHERITE_BOW = registerItem("netherite_bow", new NetheriteBowItem(new FabricItemSettings().maxCount(1)
             .maxDamage(768)));
+    
+    private static Text crimtaneUpgradeSmithingTitle = Text.literal("Netherite Equipment").formatted(Formatting.BLUE);
+    private static Text crimtaneUpgradeSmithingAppliesTo = Text.literal("Crimtane Ingot").formatted(Formatting.BLUE);
+    private static Text crimtaneUpgradeSmithingIngredient = Text.literal("Crimtane Upgrade").formatted(Formatting.GRAY);
+    private static Text crimtaneUpgradeSmithingBaseDesc = Text.literal("Add netherite armor, weapon, or tool").formatted(Formatting.WHITE);
+    private static Text crimtaneUpgradeSmithingAdditionDesc = Text.literal("Add Crimtane Ingot").formatted(Formatting.WHITE);
+
+    public static final Item CRIMTANE_UPGRADE_SMITHING_TEMPLATE = registerItem("crimtane_upgrade_smithing_template",
+        new SmithingTemplateItem(
+                crimtaneUpgradeSmithingTitle,
+                crimtaneUpgradeSmithingAppliesTo,
+                crimtaneUpgradeSmithingIngredient,
+                crimtaneUpgradeSmithingBaseDesc,
+                crimtaneUpgradeSmithingAdditionDesc,
+                List.of(new Identifier("item/blood_needle")),
+                List.of(new Identifier("item/blood_needle"))
+        )
+        );
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Bloodmoon.MOD_ID, name), item);

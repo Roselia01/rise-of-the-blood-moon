@@ -59,7 +59,5 @@ public class SupercombineStatusEffect extends StatusEffect {
             1.0F,
             1.0F
         );
-
-        // TODO: Add blood explosion particles and sound
     }
 }

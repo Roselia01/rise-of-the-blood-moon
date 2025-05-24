@@ -17,7 +17,6 @@ import net.roselia.bloodmoon.effect.ModEffects;
 import net.roselia.bloodmoon.entity.ModEntities;
 import net.roselia.bloodmoon.item.ModItems;
 
-
 import net.minecraft.entity.projectile.ArrowEntity;
 
 public class BloodNeedleEntity extends ArrowEntity {
@@ -33,7 +32,7 @@ public class BloodNeedleEntity extends ArrowEntity {
     public BloodNeedleEntity(World world, LivingEntity owner) {
         super(ModEntities.BLOOD_NEEDLE, world);
         this.setOwner(owner);
-        this.setDamage(1.0);
+        this.setDamage(3.0);
         this.hasNoGravity();
         this.pickupType = PickupPermission.DISALLOWED;
     }
@@ -41,7 +40,7 @@ public class BloodNeedleEntity extends ArrowEntity {
     public BloodNeedleEntity(World world, double x, double y, double z) {
         super(ModEntities.BLOOD_NEEDLE, world);
         this.setPos(x, y, z);
-        this.setDamage(1.0);
+        this.setDamage(3.0);
         this.hasNoGravity();
         this.pickupType = PickupPermission.DISALLOWED;
     }

@@ -29,6 +29,7 @@ public class ModItemGroups {
                         entries.add(ModItems.COOKED_INTESTINES);
                         entries.add(ModItems.NEEDLER);
                         entries.add(ModItems.BLOOD_NEEDLE);
+                        entries.add(ModItems.CRIMTANE_UPGRADE_SMITHING_TEMPLATE);
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
                         entries.add(ModBlocks.CRIMTANE_BLOCK);
