@@ -17,6 +17,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)));
     public static final Block CRIMTANE_BLOCK = registerBlock("crimtane_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block MEAT_BLOCK = registerBlock("meat_block",
+            new Block(FabricBlockSettings.copyOf(Blocks.NETHER_WART_BLOCK)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

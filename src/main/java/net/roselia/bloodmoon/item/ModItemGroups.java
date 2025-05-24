@@ -33,6 +33,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.CRIMTANE_CLUMP);
                         entries.add(ModBlocks.CRIMTANE_BLOCK);
+                        entries.add(ModBlocks.MEAT_BLOCK);
             }).build());
             
     public static void registerItemGroups() {

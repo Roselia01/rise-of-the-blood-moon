@@ -11,9 +11,18 @@
   "item.bloodmoon.sanguine_summoner": "Sanguine Summoner",
   "item.bloodmoon.needler": "Needler",
   "item.bloodmoon.netherite_bow": "Netherite Bow",
+  "item.bloodmoon.crimtane_upgrade": "Crimtane Upgrade",
+
+  "upgrade.minecraft.crimtane_upgrade": "Crimtane Upgrade",
+  "item.minecraft.smithing_template.crimtane_upgrade.applies_to": "Netherite Equipment",
+  "item.minecraft.smithing_template.crimtane_upgrade.ingredients": "Crimtane Ingot",
+  "item.minecraft.smithing_template.crimtane_upgrade.base_slot_description": "Add netherite armor, weapon or tool",
+  "item.minecraft.smithing_template.crimtane_upgrade.additions_slot_description": "Add Crimtane Ingot",
+
 
   "block.bloodmoon.crimtane_clump": "Crimtane Clump",
   "block.bloodmoon.crimtane_block": "Crimtane Block",
+  "block.bloodmoon.meat_block": "Meat Block",
 
   "itemgroup.bloodmoon": "Rise of the Blood Moon",
 

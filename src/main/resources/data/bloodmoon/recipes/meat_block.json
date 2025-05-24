@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloodmoon:flesh_chunk"
+    }
+  },
+  "result": {
+    "item": "bloodmoon:meat_block"
+  }
+}
