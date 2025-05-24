@@ -31,9 +31,9 @@ public class HeldItemRendererMixin {
         MatrixStack matrices,
         VertexConsumerProvider vertexConsumers,
         int light
-    ) {
-        System.out.println("ZOOM PATCH HIT: " + stack.getItem());
-
+    )
+    
+    {
         Item item = stack.getItem();
         if (item instanceof BowItemType bow) {
             return bow.getDrawSpeed();

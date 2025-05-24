@@ -1,11 +1,9 @@
 package net.roselia.bloodmoon;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.server.world.ServerWorld;
 import net.roselia.bloodmoon.block.ModBlocks;
+import net.roselia.bloodmoon.effect.ModEffects;
 import net.roselia.bloodmoon.entity.ModEntities;
-import net.roselia.bloodmoon.entity.NeedleTracker;
 import net.roselia.bloodmoon.item.ModItemGroups;
 import net.roselia.bloodmoon.item.ModItems;
 import org.slf4j.Logger;
@@ -21,10 +19,6 @@ public class Bloodmoon implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModEntities.registerModEntities();
-
-		ServerTickEvents.END_WORLD_TICK.register(world -> {
-		if (!world.isClient) {
-			NeedleTracker.tick((ServerWorld) world);
-		}});
+		ModEffects.registerEffects();
 	}
 }

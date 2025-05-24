@@ -15,5 +15,9 @@
   "block.bloodmoon.crimtane_clump": "Crimtane Clump",
   "block.bloodmoon.crimtane_block": "Crimtane Block",
 
-  "itemgroup.bloodmoon": "Rise of the Blood Moon"
+  "itemgroup.bloodmoon": "Rise of the Blood Moon",
+
+  "effect.bloodmoon.supercombine": "Supercombine",
+
+  "entity.bloodmoon.blood_needle": "Blood Needle"
 }

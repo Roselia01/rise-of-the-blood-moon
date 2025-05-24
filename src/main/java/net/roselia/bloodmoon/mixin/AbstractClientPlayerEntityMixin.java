@@ -35,7 +35,7 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
             float drawTime = (float) this.getItemUseTime() / bow.getDrawSpeed();
 
             if (drawTime > 1.0F) drawTime = 1.0F;
-            else drawTime *= drawTime; // vanilla squaring behavior
+            else drawTime *= drawTime;
 
             fov *= 1.0F - (drawTime * 0.15F);
         }

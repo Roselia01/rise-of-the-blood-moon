@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"HeldItemRendererMixin",
-		"AbstractClientPlayerEntityMixin"
+		"AbstractClientPlayerEntityMixin",
+		"BloodNeedleVisualMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
