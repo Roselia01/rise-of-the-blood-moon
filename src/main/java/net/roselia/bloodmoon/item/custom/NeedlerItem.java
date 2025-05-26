@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 import net.roselia.bloodmoon.entity.custom.BloodNeedleEntity;
 import net.roselia.bloodmoon.item.ModItems;
 import java.util.function.Predicate;
-import net.roselia.bloodmoon.api.BowItemType;
 
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 

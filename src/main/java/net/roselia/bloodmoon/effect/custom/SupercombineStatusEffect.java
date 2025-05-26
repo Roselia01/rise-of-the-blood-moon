@@ -28,7 +28,7 @@ public class SupercombineStatusEffect extends StatusEffect {
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        return true; // tick every tick
+        return true;
     }
 
     private void detonate(LivingEntity entity, int needleCount) {

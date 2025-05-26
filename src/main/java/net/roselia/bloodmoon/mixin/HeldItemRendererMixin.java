@@ -11,7 +11,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.roselia.bloodmoon.api.BowItemType;
+import net.roselia.bloodmoon.item.custom.BowItemType;
 
 @Mixin(value = HeldItemRenderer.class, priority = 1100)
 public class HeldItemRendererMixin {

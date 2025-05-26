@@ -10,11 +10,12 @@ import net.roselia.bloodmoon.entity.ModEntities;
 import net.roselia.bloodmoon.item.ModItems;
 
 public class BloodmoonClient implements ClientModInitializer {
-    private static final Identifier NEEDLE_TEX =
-        new Identifier("bloodmoon", "textures/entity/projectiles/blood_needle.png");
+    private static final Identifier NEEDLE_TEX = new Identifier("bloodmoon", "textures/entity/projectiles/blood_needle.png");
+    public static float fearZoomProgress = 0.0F;
 
     @Override
     public void onInitializeClient() {
+
         EntityRendererRegistry.register(
         ModEntities.BLOOD_NEEDLE,
         ctx -> new ArrowEntityRenderer(ctx) {

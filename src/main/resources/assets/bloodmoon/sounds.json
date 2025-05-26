@@ -1,0 +1,20 @@
+{
+  "misc.heartbeat": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "bloodmoon:misc/heartbeat",
+        "stream": false
+      }      
+    ]
+  },
+  "misc.sheaphard": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "bloodmoon:misc/sheaphard",
+        "stream": false
+      }
+    ]
+  }
+}

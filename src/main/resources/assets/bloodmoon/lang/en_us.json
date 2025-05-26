@@ -27,6 +27,8 @@
   "itemgroup.bloodmoon": "Rise of the Blood Moon",
 
   "effect.bloodmoon.supercombine": "Supercombine",
+  "effect.bloodmoon.menacing": "Menacing",
+  "effect.bloodmoon.fear": "Fear",
 
   "entity.bloodmoon.blood_needle": "Blood Needle"
 }

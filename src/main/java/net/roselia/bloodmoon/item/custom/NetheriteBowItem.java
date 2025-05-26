@@ -11,7 +11,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.roselia.bloodmoon.api.BowItemType;
 
 public class NetheriteBowItem extends BowItem implements BowItemType {
     public NetheriteBowItem(Settings settings) {

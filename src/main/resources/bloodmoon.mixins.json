@@ -5,7 +5,9 @@
 	"mixins": [
 		"HeldItemRendererMixin",
 		"AbstractClientPlayerEntityMixin",
-		"BloodNeedleVisualMixin"
+		"BloodNeedleVisualMixin",
+		"CameraMixin",
+		"MobEntityAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
