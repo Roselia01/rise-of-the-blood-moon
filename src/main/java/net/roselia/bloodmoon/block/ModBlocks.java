@@ -13,18 +13,24 @@ import net.roselia.bloodmoon.Bloodmoon;
 
 public class ModBlocks {
 
+    // Crimtane Blocks
     public static final Block CRIMTANE_CLUMP = registerBlock("crimtane_clump",
             new Block(FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)));
+
     public static final Block CRIMTANE_BLOCK = registerBlock("crimtane_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
+    // Shit that might get removed
     public static final Block MEAT_BLOCK = registerBlock("meat_block",
             new Block(FabricBlockSettings.copyOf(Blocks.NETHER_WART_BLOCK)));
 
+    // Block Registration
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(Bloodmoon.MOD_ID, name), block);
     }
 
+    // Block HeldItem Registration
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(Bloodmoon.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));

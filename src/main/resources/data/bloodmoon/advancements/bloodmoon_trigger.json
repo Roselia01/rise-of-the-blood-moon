@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "bloodmoon:sanguine_prism"
+    },
+    "title": {
+      "translate": "advancement.bloodmoon.bloodmoon_trigger.title"
+    },
+    "description": {
+      "translate": "advancement.bloodmoon.bloodmoon_trigger.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "bloodmoon:textures/block/meat_block.png"
+  },
+  "criteria": {
+    "triggered_bloodmoon": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

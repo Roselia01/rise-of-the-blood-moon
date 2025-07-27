@@ -16,5 +16,14 @@
         "stream": false
       }
     ]
+  },
+  "record.human_flesh": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "bloodmoon:record/human_flesh",
+        "stream": true
+      }
+    ]
   }
 }

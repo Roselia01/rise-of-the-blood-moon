@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,10 +19,11 @@ import net.minecraft.util.Util;
 import net.roselia.bloodmoon.Bloodmoon;
 import net.roselia.bloodmoon.item.custom.NeedlerItem;
 import net.roselia.bloodmoon.item.custom.NetheriteBowItem;
+import net.roselia.bloodmoon.sound.ModSounds;
 
 public class ModItems {
 
-        // FOOD ITEMS
+        // FOOD ITEMS (MAYBE REMOVE LATER)
         public static final Item FLESH_CHUNK = registerItem("flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
                 .hunger(4)
                 .saturationModifier(0.1f)
@@ -57,7 +59,7 @@ public class ModItems {
                 .build())));
 
         // MISC ITEMS
-        public static final Item BLOODY_LENS = registerItem("bloody_lens", new Item(new FabricItemSettings()));
+        public static final Item BLOODY_LENS = registerItem("bloody_lens", new Item(new FabricItemSettings())); // Might Remove Later
 
         public static final Item BLOOD_NEEDLE = registerItem("blood_needle", new Item(new FabricItemSettings()));
 
@@ -68,15 +70,29 @@ public class ModItems {
         public static final Item SANGUINE_PRISM = registerItem("sanguine_prism", new Item(new FabricItemSettings().rarity(Rarity.EPIC)
                 .maxCount(1)));
 
-        public static final Item SANGUINE_SUMMONER = registerItem("sanguine_summoner", new Item(new FabricItemSettings().rarity(Rarity.EPIC)
+        public static final Item MUSIC_DISC_HUMAN_FLESH = Registry.register(
+                Registries.ITEM,
+                new Identifier("bloodmoon", "music_disc_human_flesh"),
+                new MusicDiscItem(
+                        15,
+                        ModSounds.HUMAN_FLESH_RECORD,
+                        new FabricItemSettings().maxCount(1).rarity(Rarity.RARE),
+                        6280
+                )
+        );
+
+        public static final Item SANGUINE_SUMMONER = registerItem("sanguine_summoner", new Item(new FabricItemSettings() // Might Remove Later
+                .rarity(Rarity.EPIC)
                 .maxCount(1)));
         
         // TOOLS & WEAPONS
         public static final Item NEEDLER = registerItem("needler", new NeedlerItem(new FabricItemSettings().maxCount(1)
-                .maxDamage(192)));
+                .maxDamage(192)
+                .fireproof()));
 
         public static final Item NETHERITE_BOW = registerItem("netherite_bow", new NetheriteBowItem(new FabricItemSettings().maxCount(1)
-                .maxDamage(768)));
+                .maxDamage(768)
+                .fireproof()));
 
         // SMITHING TEMPLATES
         private static final Formatting TITLE_FORMATTING = Formatting.GRAY;
@@ -137,7 +153,6 @@ public class ModItems {
                         CRIMTANE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION_TEXT,
                         getCrimtaneUpgradeEmptyBaseSlotTextures(),
                         getCrimtaneUpgradeEmptyAdditionsSlotTextures()
-
                 )
         );
 

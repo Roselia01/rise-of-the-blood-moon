@@ -28,7 +28,8 @@ public class BloodmoonClient implements ClientModInitializer {
         ModelPredicateProviderRegistry.register(ModItems.NEEDLER,
             new Identifier("pulling"), (stack, world, entity, seed) -> {
                 return (entity != null && entity.isUsingItem() && entity.getActiveItem() == stack) ? 1.0F : 0.0F;
-            });
+            }
+        );
 
         ModelPredicateProviderRegistry.register(ModItems.NEEDLER,
             new Identifier("pull"), (stack, world, entity, seed) -> {
@@ -37,12 +38,14 @@ public class BloodmoonClient implements ClientModInitializer {
                 }
                 float useTime = (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
                 return useTime;
-            });
+            }
+        );
 
         ModelPredicateProviderRegistry.register(ModItems.NETHERITE_BOW,
             new Identifier("pulling"), (stack, world, entity, seed) -> {
                 return (entity != null && entity.isUsingItem() && entity.getActiveItem() == stack) ? 1.0F : 0.0F;
-            });
+            }
+        );
 
         ModelPredicateProviderRegistry.register(ModItems.NETHERITE_BOW,
             new Identifier("pull"), (stack, world, entity, seed) -> {
@@ -51,6 +54,7 @@ public class BloodmoonClient implements ClientModInitializer {
                 }
                 float useTime = (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
                 return useTime;
-            });
+            }
+        );
     }
 }

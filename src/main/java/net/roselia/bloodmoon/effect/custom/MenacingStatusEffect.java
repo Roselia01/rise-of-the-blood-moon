@@ -9,9 +9,10 @@ import net.roselia.bloodmoon.effect.ModEffects;
 
 public class MenacingStatusEffect extends StatusEffect {
     public MenacingStatusEffect() {
-        super(StatusEffectCategory.NEUTRAL, 0x7E36D8);
+        super(StatusEffectCategory.NEUTRAL, 0x7E36D8); // Blue Violet color ゴゴゴ。。。
     }
 
+    // Make entities with this effect cause fear in others that are weaker
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         World world = entity.getWorld();
@@ -25,10 +26,10 @@ public class MenacingStatusEffect extends StatusEffect {
                     && !target.hasStatusEffect(ModEffects.MENACING)
             ).forEach(target -> {
                 StatusEffectInstance currentFear = target.getStatusEffect(ModEffects.FEAR);
-                if (currentFear == null || currentFear.getDuration() < 100) {
+                if (currentFear == null || currentFear.getDuration() < 200) {
                     target.addStatusEffect(new StatusEffectInstance(
                         ModEffects.FEAR,
-                        100,
+                        200,
                         0,
                         true,
                         true

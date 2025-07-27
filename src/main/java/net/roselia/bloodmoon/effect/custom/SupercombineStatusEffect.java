@@ -12,9 +12,10 @@ import net.minecraft.world.World;
 public class SupercombineStatusEffect extends StatusEffect {
 
     public SupercombineStatusEffect() {
-        super(StatusEffectCategory.HARMFUL, 0xF02543);
+        super(StatusEffectCategory.HARMFUL, 0xF02543); // Fear the red mist...
     }
 
+    // This effect detonates when the duration runs out, dealing damage based on the amplifier
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         World world = entity.getWorld();
@@ -31,18 +32,20 @@ public class SupercombineStatusEffect extends StatusEffect {
         return true;
     }
 
+    // The detonator in question
     private void detonate(LivingEntity entity, int needleCount) {
         int count = Math.min(needleCount + 1, 7);
         int damagePer;
 
-        if (count <= 3) damagePer = 2;
-        else if (count <= 5) damagePer = 4;
-        else damagePer = 6;
+        if (count <= 3) damagePer = 2; // 1-3 needles deal 2 damage each
+        else if (count <= 5) damagePer = 4; // 4-5 needles deal 4 damage each
+        else damagePer = 6; // 6+ needles deal 6 damage each
 
         int totalDamage = count * damagePer;
 
         entity.damage(entity.getDamageSources().magic(), totalDamage);
 
+        // Spawn explosion particles
         ((ServerWorld) entity.getWorld()).spawnParticles(
             ParticleTypes.EXPLOSION, 
             entity.getX(), entity.getBodyY(0.5), entity.getZ(), 
@@ -51,6 +54,7 @@ public class SupercombineStatusEffect extends StatusEffect {
             1.0
         );
 
+        // and sound effects
         entity.getWorld().playSound(
             null,
             entity.getX(), entity.getY(), entity.getZ(),

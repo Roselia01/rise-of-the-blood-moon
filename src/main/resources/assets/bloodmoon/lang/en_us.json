@@ -12,6 +12,8 @@
   "item.bloodmoon.needler": "Needler",
   "item.bloodmoon.netherite_bow": "Netherite Bow",
   "item.bloodmoon.crimtane_upgrade": "Crimtane Upgrade",
+  "item.bloodmoon.music_disc_human_flesh": "Music Disc",
+  "item.bloodmoon.music_disc_human_flesh.desc": "Binding-P - Human Flesh",
 
   "upgrade.minecraft.crimtane_upgrade": "Crimtane Upgrade",
   "item.minecraft.smithing_template.crimtane_upgrade.applies_to": "Netherite Equipment",
@@ -30,5 +32,8 @@
   "effect.bloodmoon.menacing": "Menacing",
   "effect.bloodmoon.fear": "Fear",
 
-  "entity.bloodmoon.blood_needle": "Blood Needle"
+  "entity.bloodmoon.blood_needle": "Blood Needle",
+
+  "advancement.bloodmoon.bloodmoon_trigger.title": "The Blood Moon Is Rising...",
+  "advancement.bloodmoon.bloodmoon_trigger.desc": "Bear witness to the Rising of the Blood Moon."
 }

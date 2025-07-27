@@ -3,10 +3,16 @@
 	"package": "net.roselia.bloodmoon.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"HeldItemRendererMixin",
 		"AbstractClientPlayerEntityMixin",
+		"BloodMoonBiomeEffectsMixin",
+		"BloodMoonClientWorldMixin",
+		"BloodMoonLightmapTextureManagerMixin",
+		"BloodMoonParticlesMixin",
+		"BloodMoonWorldRendererMixin",
 		"BloodNeedleVisualMixin",
 		"CameraMixin",
+		"HeldItemRendererMixin",
+		"LightmapTextureManagerAccessor",
 		"MobEntityAccessor"
 	],
 	"injectors": {

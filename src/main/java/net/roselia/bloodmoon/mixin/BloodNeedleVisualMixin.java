@@ -17,8 +17,12 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(StuckArrowsFeatureRenderer.class)
+@SuppressWarnings("UnresolvedMixinReference")
 public abstract class BloodNeedleVisualMixin {
 
+    // These warnings are stupid and don't make sense, ion even fucking care no more
+    // This mixin is used to change the visual representation of the Blood Needle
+    // works in game, but the warnings... I hate them they make me angry and sad
     @Inject(
         method = "renderObject(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IFFF)V",
         at = @At("HEAD"),
@@ -34,6 +38,7 @@ public abstract class BloodNeedleVisualMixin {
         }
     }
 
+    // Dumb aaa warnings, I don't care about lookin' ass
     @Redirect(
         method = "renderObject(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IFFF)V",
         at = @At(

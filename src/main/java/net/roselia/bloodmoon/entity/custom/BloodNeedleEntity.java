@@ -29,6 +29,7 @@ public class BloodNeedleEntity extends ArrowEntity {
         super(type, world);
     }
 
+    // Blood Needle Entity acts like an arrow, but with a few custom behaviors
     public BloodNeedleEntity(World world, LivingEntity owner) {
         super(ModEntities.BLOOD_NEEDLE, world);
         this.setOwner(owner);
@@ -45,6 +46,7 @@ public class BloodNeedleEntity extends ArrowEntity {
         this.pickupType = PickupPermission.DISALLOWED;
     }
 
+    // Override the Arrow entity texture to use the Blood Needle texture
     @Override
     protected ItemStack asItemStack() {
         return new ItemStack(ModItems.BLOOD_NEEDLE);
@@ -56,9 +58,11 @@ public class BloodNeedleEntity extends ArrowEntity {
 
         if (this.getWorld().isClient) return;
 
+        // If the needle is stuck in the ground for too long, it explodes
         if (this.inGround) {
             ticksStuckInGround++;
 
+            // Play explosion particle effect
             if (ticksStuckInGround >= 60) {
                 ((ServerWorld) this.getWorld()).spawnParticles(
                     ParticleTypes.EXPLOSION,
@@ -68,6 +72,7 @@ public class BloodNeedleEntity extends ArrowEntity {
                     0.1
                 );
 
+                // and sound effect :3
                 this.getWorld().playSound(
                     null,
                     this.getX(), this.getY(), this.getZ(),
@@ -77,6 +82,7 @@ public class BloodNeedleEntity extends ArrowEntity {
                     1.0F
                 );
 
+                // Delete the needle after the 'splosion
                 this.discard();
             }
 
@@ -85,6 +91,7 @@ public class BloodNeedleEntity extends ArrowEntity {
 
         ticksStuckInGround = 0;
 
+        // If the needle is not stuck, we check if it has a locked target
         if (this.getOwner() instanceof LivingEntity shooter && shooter.isAlive()) {
             Vec3d currentVelocity = this.getVelocity();
             double speed = currentVelocity.length();
@@ -98,6 +105,7 @@ public class BloodNeedleEntity extends ArrowEntity {
         }
     }
 
+    // Half Life 2 style projectile tracking around the crosshair type shit
     private Vec3d rotateTowards(Vec3d from, Vec3d to, double maxAngle) {
         double dot = from.dotProduct(to);
         dot = MathHelper.clamp(dot, -1.0, 1.0);
@@ -110,6 +118,7 @@ public class BloodNeedleEntity extends ArrowEntity {
         return from.lerp(to, t).normalize();
     }
 
+    // ON HIT give the target the Supercombine effect for like 3 seconds
 	@Override
 	protected void onHit(LivingEntity target) {
 		super.onHit(target);

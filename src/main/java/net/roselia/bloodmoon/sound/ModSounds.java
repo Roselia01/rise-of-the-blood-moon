@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 public class ModSounds {
     public static final SoundEvent HEARTBEAT = register("misc.heartbeat");
     public static final SoundEvent SHEAPHARD = register("misc.sheaphard");
+    public static final SoundEvent HUMAN_FLESH_RECORD = register("record.human_flesh");
 
     private static SoundEvent register(String name) {
         Identifier id = new Identifier("bloodmoon", name);
