@@ -23,44 +23,24 @@ import net.roselia.bloodmoon.sound.ModSounds;
 
 public class ModItems {
 
-        // FOOD ITEMS (MAYBE REMOVE LATER)
-        public static final Item FLESH_CHUNK = registerItem("flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
-                .hunger(4)
-                .saturationModifier(0.1f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200, 1), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 0), 0.5f)
-                .build())));
-
-        public static final Item COOKED_FLESH_CHUNK = registerItem("cooked_flesh_chunk", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
-                .hunger(6)
-                .saturationModifier(0.3f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 0), 0.5f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 900, 0), 0.25f)
-                .build())));
-
+        // FOOD ITEMS
         public static final Item INTESTINES = registerItem("intestines", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
                 .hunger(1)
                 .saturationModifier(0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 900, 0), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 1200, 2), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 1), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 2400, 1), 1.0f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 400, 0), 0.8f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 500, 2), 0.3f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), 0.2f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 300, 1), 0.4f)
                 .snack()
                 .build())));
 
-        public static final Item COOKED_INTESTINES = registerItem("cooked_intestines", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
-                .hunger(2)
+        public static final Item SAUSAGE = registerItem("sausage", new Item(new FabricItemSettings().food(new FoodComponent.Builder()
+                .hunger(3)
                 .saturationModifier(0.1f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.5f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 300, 0), 0.5f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 1200, 0), 0.5f)
                 .snack()
                 .build())));
 
         // MISC ITEMS
-        public static final Item BLOODY_LENS = registerItem("bloody_lens", new Item(new FabricItemSettings())); // Might Remove Later
-
         public static final Item BLOOD_NEEDLE = registerItem("blood_needle", new Item(new FabricItemSettings()));
 
         public static final Item CRIMTANE_CHUNK = registerItem("crimtane_chunk", new Item(new FabricItemSettings()));
@@ -80,10 +60,6 @@ public class ModItems {
                         6280
                 )
         );
-
-        public static final Item SANGUINE_SUMMONER = registerItem("sanguine_summoner", new Item(new FabricItemSettings() // Might Remove Later
-                .rarity(Rarity.EPIC)
-                .maxCount(1)));
         
         // TOOLS & WEAPONS
         public static final Item NEEDLER = registerItem("needler", new NeedlerItem(new FabricItemSettings().maxCount(1)

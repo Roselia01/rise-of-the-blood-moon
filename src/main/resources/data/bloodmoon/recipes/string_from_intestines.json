@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "   ",
+    "III",
+    "   "
   ],
   "key": {
-    "#": {
-      "item": "bloodmoon:flesh_chunk"
+    "I": {
+      "item": "bloodmoon:intestines"
     }
   },
   "result": {
-    "item": "bloodmoon:meat_block"
+    "item": "minecraft:string"
   }
 }

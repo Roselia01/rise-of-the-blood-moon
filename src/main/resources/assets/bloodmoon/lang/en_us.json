@@ -1,14 +1,10 @@
 {
-  "item.bloodmoon.flesh_chunk": "Flesh Chunk",
-  "item.bloodmoon.cooked_flesh_chunk": "Cooked Flesh Chunk",
   "item.bloodmoon.crimtane_chunk": "Crimtane Chunk",
+  "item.bloodmoon.intestines": "Intestines",
+  "item.bloodmoon.sausage": "Sausage",
   "item.bloodmoon.sanguine_prism": "Sanguine Prism",
-  "item.bloodmoon.bloody_lens": "Bloody Lens",
   "item.bloodmoon.crimtane_ingot": "Crimtane Ingot",
   "item.bloodmoon.blood_needle": "Blood Needle",
-  "item.bloodmoon.intestines": "Intestines",
-  "item.bloodmoon.cooked_intestines": "Cooked Intestines",
-  "item.bloodmoon.sanguine_summoner": "Sanguine Summoner",
   "item.bloodmoon.needler": "Needler",
   "item.bloodmoon.netherite_bow": "Netherite Bow",
   "item.bloodmoon.crimtane_upgrade": "Crimtane Upgrade",
@@ -24,7 +20,6 @@
 
   "block.bloodmoon.crimtane_clump": "Crimtane Clump",
   "block.bloodmoon.crimtane_block": "Crimtane Block",
-  "block.bloodmoon.meat_block": "Meat Block",
 
   "itemgroup.bloodmoon": "Rise of the Blood Moon",
 

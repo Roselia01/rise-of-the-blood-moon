@@ -89,16 +89,15 @@ public class Bloodmoon implements ModInitializer {
 			}
 
 			// Reset at dawn
-			if (timeOfDay > 23480 && BloodMoonState.BLOOD_MOON_RISEN) {
+			if ((timeOfDay > 23480 || timeOfDay < 6000) && BloodMoonState.BLOOD_MOON_RISEN) {
 				BloodMoonState.BLOOD_MOON_RISEN = false;
 				BloodMoonState.IS_BLOOD_MOON = false;
 				world.getPlayers().forEach(player ->
 					player.sendMessage(Text.literal("The sun rises as the stench of blood fades."), true));
 			}
 
-
 			// Show message once the moon is visible in the sky
-			if (timeOfDay >= 13000 && BloodMoonState.IS_BLOOD_MOON && !BloodMoonState.BLOOD_MOON_RISEN) {
+			if (timeOfDay >= 13000 && timeOfDay <= 23480 && BloodMoonState.IS_BLOOD_MOON && !BloodMoonState.BLOOD_MOON_RISEN) {
 				BloodMoonState.BLOOD_MOON_RISEN = true;
 				world.getPlayers().forEach(player -> {
 					if (player instanceof ServerPlayerEntity) {
@@ -107,7 +106,19 @@ public class Bloodmoon implements ModInitializer {
 							serverPlayer.server.getAdvancementLoader().get(new Identifier("bloodmoon", "bloodmoon_trigger")),
 							"triggered_bloodmoon"
 						);
-						player.sendMessage(Text.literal("The Blood Moon is rising."), true);
+						player.sendMessage(Text.literal("The Blood Moon is rising..."), true);
+						
+						// Only play the sound if the player is in the overworld
+						if (player.getWorld().getRegistryKey() == net.minecraft.world.World.OVERWORLD) {
+							player.getWorld().playSound(
+								null,
+								player.getX(), player.getY(), player.getZ(),
+								net.minecraft.registry.Registries.SOUND_EVENT.get(new Identifier("minecraft", "entity.ender_dragon.ambient")),
+								net.minecraft.sound.SoundCategory.AMBIENT,
+								1.0f,  // volume
+								0.5f   // pitch
+							);
+						}
 					}
 				});
 			}

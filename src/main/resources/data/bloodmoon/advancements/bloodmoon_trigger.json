@@ -13,7 +13,7 @@
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false,
-    "background": "bloodmoon:textures/block/meat_block.png"
+    "background": "bloodmoon:textures/block/crimtane_chunk.png"
   },
   "criteria": {
     "triggered_bloodmoon": {

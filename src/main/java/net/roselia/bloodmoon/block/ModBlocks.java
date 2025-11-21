@@ -20,10 +20,6 @@ public class ModBlocks {
     public static final Block CRIMTANE_BLOCK = registerBlock("crimtane_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
-    // Shit that might get removed
-    public static final Block MEAT_BLOCK = registerBlock("meat_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.NETHER_WART_BLOCK)));
-
     // Block Registration
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
